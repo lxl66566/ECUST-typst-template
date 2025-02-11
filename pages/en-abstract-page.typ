@@ -1,4 +1,4 @@
-#import "../fonts/font-def.typ": *
+#import "../fonts/font.typ": *
 
 #let en_abstract_page(abstract, keywords: ()) = {
   set heading(level: 1, numbering: none)
@@ -14,7 +14,7 @@
   abstract
   par(first-line-indent: 0em)[
     #text(weight: "bold", font: heiti, size: 12pt)[
-      Key Words: 
+      Key Words:
       #keywords.join("; ")
     ]
   ]

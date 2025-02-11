@@ -2,14 +2,14 @@
 // 使用伪粗体修复中文粗体不能正确显示的问题
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 
-#import "fonts/font-def.typ": *
+#import "fonts/font.typ": *
 #import "pages/acknowledgement.typ": acknowledgement
 #import "pages/chinese-outline.typ": chinese_outline
 #import "pages/declaration.typ": declaration
 #import "pages/zh-abstract-page.typ": zh_abstract_page
 #import "pages/en-abstract-page.typ": en_abstract_page
 #import "pages/references.typ": _set_references
-#import "pages/paper-cover.typ": paper_cover
+#import "pages/开题报告封面.typ": paper_cover
 #import "pages/paper-pages.typ": *
 
 #import "utilities/three-line-table.typ": three_line_table
@@ -19,18 +19,20 @@
 #import "utilities/set-figure.typ": _set_figure
 #import "utilities/set-numbering.typ": _set_numbering
 
-#import "variable/cs-variable.typ": *
-
 #let project(
   anonymous: false, // 是否匿名化处理
   title: "",
+  title2: 0, // 标题要被切成两行，这是第一行的字数
   abstract_zh: [],
   abstract_en: [],
   keywords_zh: (),
   keywords_en: (),
   school: "",
+  department: "",
+  major: "",
   author: "",
   id: "",
+  grade: "",
   mentor: "",
   class: "",
   date: (1926, 8, 17),
@@ -45,7 +47,7 @@
   // 图表公式的序号
   show: _set_numbering
   // 参考文献
-  show: _set_references.with(csl_style: "hust-cs.csl")
+  show: _set_references.with(csl_style: "hust-cse-ug.csl")
   // 修复缩进
   show: _fix_indent
   // 整体页面设置
@@ -56,8 +58,19 @@
   /* 封面与原创性声明 */
 
   // 封面
-  paper_cover(cover_logo_path: "../assets/cs-hust.png", 
-    anonymous, title, school, class, author, id, mentor, date
+  paper_cover(
+    cover_logo_path: "../assets/ecust.jpg",
+    anonymous,
+    title,
+    title2,
+    school,
+    department,
+    major,
+    grade,
+    id,
+    author,
+    mentor,
+    date,
   )
 
   // 原创性声明
@@ -74,19 +87,19 @@
   /* 目录与摘要 */
 
   // 整体页眉
-  show: _cs_set_paper_page_header.with(anonymous: anonymous)
+  show: _set_paper_page_header.with(anonymous: anonymous)
   // 目录与摘要的页脚
   show: _set_paper_page_footer_pre
   // 整体段落与页面设置
   show: _set_paper_page_par
 
   // 摘要
-  cs_zh_abstract_page(abstract_zh, keywords: keywords_zh)
+  zh_abstract_page(abstract_zh, keywords: keywords_zh)
 
   pagebreak()
 
   // abstract
-  cs_en_abstract_page(abstract_en, keywords: keywords_en)
+  en_abstract_page(abstract_en, keywords: keywords_en)
 
   pagebreak()
 

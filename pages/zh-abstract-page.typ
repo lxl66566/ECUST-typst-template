@@ -1,4 +1,4 @@
-#import "../fonts/font-def.typ": *
+#import "../fonts/font.typ": *
 
 // 中文摘要
 #let zh_abstract_page(abstract, keywords: ()) = {

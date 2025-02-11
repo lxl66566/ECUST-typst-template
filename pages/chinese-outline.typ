@@ -1,4 +1,4 @@
-#import "../fonts/font-def.typ": *
+#import "../fonts/font.typ": *
 
 // inspired from https://github.com/lucifer1004/pkuthss-typst.git
 #let chinese_outline() = {
@@ -18,7 +18,9 @@
       }
 
       // 是否有 el 位于前面，前面的目录中用拉丁数字，后面的用阿拉伯数字
-      let before_toc = query(heading.where(outlined: true).before(loc), loc).find((one) => {one.body == el.body}) != none
+      let before_toc = (
+        query(heading.where(outlined: true).before(loc), loc).find(one => { one.body == el.body }) != none
+      )
       let page_num = if before_toc {
         numbering("I", counter(page).at(el.location()).first())
       } else {
@@ -26,24 +28,24 @@
       }
 
       link(el.location())[#{
-        // acknoledgement has no numbering
-        let chapt_num = if el.numbering != none {
-          numbering(el.numbering, ..counter(heading).at(el.location()))
-        } else {none}
+          // acknoledgement has no numbering
+          let chapt_num = if el.numbering != none {
+            numbering(el.numbering, ..counter(heading).at(el.location()))
+          } else { none }
 
-        if el.level == 1 {
-          set text(weight: "bold")
-          if chapt_num == none {} else {
+          if el.level == 1 {
+            set text(weight: "bold")
+            if chapt_num == none { } else {
+              chapt_num
+              "　　"
+            }
+            el.body
+          } else {
             chapt_num
-            "　　"
+            "　"
+            el.body
           }
-          el.body
-        } else {
-          chapt_num
-          "　"
-          el.body
-        }
-      }]
+        }]
 
       // 填充 ......
       box(width: 1fr, h(0.5em) + box(width: 1fr, repeat[.]) + h(0.5em))
