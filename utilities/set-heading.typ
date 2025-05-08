@@ -21,6 +21,7 @@
     set align(center)
     set text(weight: "regular", font: heiti, size: 字号.小二)
     set block(spacing: 1.25em)
+    pagebreak(weak: true)
     it
   }
   show heading.where(level: 2): it => {
