@@ -3,7 +3,6 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 
 #import "fonts/font.typ": *
-#import "pages/acknowledgement.typ": acknowledgement
 #import "pages/chinese-outline.typ": chinese_outline
 #import "pages/declaration.typ": declaration
 #import "pages/zh-abstract-page.typ": zh_abstract_page
@@ -111,6 +110,9 @@
   // 正文的页脚
   show: _set_paper_page_header.with(anonymous: anonymous, title: full_title, show_page: true)
   show: _set_paper_page_footer_main
+
+  // https://forum.typst.app/t/how-to-have-headings-without-numbers-in-a-fluent-way/3457
+  show selector(<nonumber>): set heading(numbering: none)
 
   counter(page).update(1)
 
