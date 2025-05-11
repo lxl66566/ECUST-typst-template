@@ -9,13 +9,16 @@
   set text(font: songti, size: 12pt)
   // 临时取消目录的首行缩进
   set par(leading: 1.24em, first-line-indent: 0pt)
-  locate(loc => {
-    let elements = query(heading.where(outlined: true), loc)
+  context {
+    let loc = here()
+    let elements = query(heading.where(outlined: true))
     for el in elements {
+      if el.level > 3 {
+        continue
+      }
+
       // 是否有 el 位于前面，前面的目录中用拉丁数字，后面的用阿拉伯数字
-      let before_toc = (
-        query(heading.where(outlined: true).before(loc), loc).find(one => { one.body == el.body }) != none
-      )
+      let before_toc = query(heading.where(outlined: true).before(loc)).find(one => { one.body == el.body }) != none
       let page_num = if before_toc {
         numbering("I", counter(page).at(el.location()).first())
       } else {
@@ -55,5 +58,5 @@
       [#page_num]
       linebreak()
     }
-  })
+  }
 }

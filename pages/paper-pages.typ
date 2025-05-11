@@ -49,7 +49,7 @@
         {
           if show_page {
             set align(right)
-            counter(page).display("1")
+            context { counter(page).display("1") }
           }
         },
       )
@@ -70,7 +70,7 @@
     ),
     footer: {
       set align(center)
-      text(font: songti, 字号.五号, baseline: 0pt, counter(page).display("I"))
+      context { text(font: songti, 字号.五号, baseline: 0pt, counter(page).display("I")) }
     },
   )
 
