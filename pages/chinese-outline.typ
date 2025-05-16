@@ -9,7 +9,7 @@
 
   set text(font: songti, size: 12pt)
   // 临时取消目录的首行缩进
-  set par(leading: 1.24em, first-line-indent: 0pt)
+  set par(first-line-indent: 0pt)
   context {
     // 目录页码以 I 开始，需要重置一次
     counter(page).update(1)

@@ -6,7 +6,7 @@
   show bibliography: it => {
     set heading(level: 1, numbering: none)
 
-    set par(justify: false, leading: 1.24em, first-line-indent: 2em)
+    set par(justify: false, leading: 0.95em, spacing: 0.95em, first-line-indent: 2em)
 
     it
   }

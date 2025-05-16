@@ -19,9 +19,9 @@
 
 // 页面布局
 #let _set_paper_page_par(body) = {
-  set text(font: songti, 12pt)
-  set par(justify: true, leading: 1.24em, first-line-indent: 2em)
-  show par: set block(spacing: 1.24em)
+  set text(font: songti, 字号.小四)
+  set par(justify: true, leading: 0.95em, spacing: 0.95em, first-line-indent: 2em)
+  show par: set block(spacing: 0.95em)
 
   body
 }

@@ -20,19 +20,19 @@
   show heading.where(level: 1): it => {
     set align(center)
     set text(weight: "regular", font: heiti, size: 字号.小二)
-    set block(spacing: 1.25em)
+    set block(spacing: 1.14em, below: 1.14em)
     pagebreak(weak: true)
-    it
+    block(it)
   }
   show heading.where(level: 2): it => {
     set text(weight: "regular", font: heiti, size: 字号.四号)
-    set block(above: 1.25em, below: 1.25em)
-    it
+    set block(above: 1.14em, below: 1.14em)
+    block(it)
   }
   show heading.where(level: 3): it => {
     set text(weight: "regular", font: heiti, size: 字号.小四)
-    set block(above: 1.25em, below: 1.25em)
-    it
+    set block(above: 1.14em, below: 1.14em)
+    block(it)
   }
   body
 }
