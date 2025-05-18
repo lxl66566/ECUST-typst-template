@@ -1,4 +1,5 @@
 import sys
+from pathlib import Path
 
 from PyPDF2 import PdfReader, PdfWriter
 
@@ -42,9 +43,10 @@ def insert_pdf(original_pdf_path, insert_pdf_path, output_pdf_path, insert_after
 
 
 if __name__ == "__main__":
-    原始pdf = "sample.pdf"
-    插入pdf = "任务书.pdf"
-    输出pdf = "sample.pdf"
+    filedir = Path(__file__).parent
+    原始pdf = filedir / "sample.pdf"
+    插入pdf = filedir / "任务书.pdf"
+    输出pdf = filedir / "sample.pdf"
     插入页码 = 0
 
     try:
