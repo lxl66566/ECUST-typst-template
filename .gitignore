@@ -2,5 +2,6 @@
 .typst-preview.*.typ
 *.pdf
 !sample.pdf
+!任务书.pdf
 tmp
 test.typ
