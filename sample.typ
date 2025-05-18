@@ -199,7 +199,8 @@ $ x < y => x gt.eq.not y $ <->
 == 代码
 === 代码块
 
-//代码块使用的是库codelst，语法和markdown类似
+代码块使用的是库codelst。
+
 #sourcecode[```typ
   #show "ArtosFlow": name => box[
     #box(image(
@@ -213,6 +214,20 @@ $ x < y => x gt.eq.not y $ <->
   ArtosFlow project. ArtosFlow is a
   project of the Artos Institute.
   ```]
+
+#indent() 如果你需要为代码块添加 caption，可以像下面这样：
+
+#figure(
+  sourcecode[```typ
+    #figure(
+      sourcecode[...],
+      kind: raw,
+      caption: "代码块caption示例",
+    )
+    ```],
+  kind: raw,
+  caption: "代码块caption",
+)
 
 === 伪代码
 
