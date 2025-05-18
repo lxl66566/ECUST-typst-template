@@ -1,7 +1,7 @@
 #import "../fonts/font.typ": *
 
 // 原创性声明和授权书
-#let declaration(anonymous: false) = {
+#let declaration(anonymous: false, signature: image("../assets/signature.png"), date: (2025, 5, 16)) = {
   set text(font: songti, 12pt)
 
   v(3em)
@@ -15,12 +15,11 @@
   ]
   v(8.5em)
   align(right)[
-    #text("论文（设计）作者签名：                            ")
-
+    论文（设计）作者签名：
     #if not anonymous {
-      text("　　　　　　　年　　月　　日")
-    } else {
-      text("██████████年███月███日")
+      box(signature, baseline: 50%)
     }
+    #linebreak()
+    #date.at(0) 年 #date.at(1) 月 #date.at(2) 日
   ]
 }

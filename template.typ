@@ -34,6 +34,8 @@
   mentor: "",
   class: "",
   date: (1926, 8, 17),
+  作者声明日期: (2025, 5, 16),
+  作者签名图片: "signature.png",
   body,
 ) = {
   let full_title = title + title2
@@ -73,7 +75,7 @@
   )
 
   // 原创性声明
-  declaration(anonymous: anonymous)
+  declaration(anonymous: anonymous, signature: 作者签名图片, date: 作者声明日期)
 
   // 原创性声明与摘要间的空页
   // pagebreak()

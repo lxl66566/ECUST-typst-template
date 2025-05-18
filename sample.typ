@@ -28,6 +28,8 @@
   mentor: "你的老板",
   class: "XXXX 专业 0000 班",
   date: (1926, 8, 17),
+  作者声明日期: (2025, 5, 16),
+  作者签名图片: image("assets/signature.png", width: 80pt),
 )
 
 
